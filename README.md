@@ -7,6 +7,7 @@
 
 
 ##Overview
+
 Basically what i did was to first call the get user endpoint which i displayed it using a listview, so on app launch the endpoint is called and the response is displayed using a listtile. Just below the listview is a set of Textformfield to take in user input for the post request which is the second endpoint i am ment to implement, the response gotten is then displayed just below the textformfields which is the name of inputed by user, id , job and when it was created.
 
 
