@@ -47,6 +47,7 @@ class _MyAppState extends State<MyApp> {
       Response response = await dio.get('https://reqres.in/api/users?page=2');
       if(response.statusCode==200){
         jsonList=response.data['data'] as List;
+        setState(() {});
       }
     }catch(e){
 
@@ -63,23 +64,21 @@ class _MyAppState extends State<MyApp> {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10,vertical:20),
-                child: Flexible(
-                  child: ListView.builder(
-                      itemBuilder: ( context, index){
-                        return ListTile(
-                          title: Text(jsonList[index]['first_name']),
-                          subtitle: Text(jsonList[index]['email']),
-                          leading: CircleAvatar(
-                            child: Image(
-                              image: NetworkImage(jsonList[index]['avatar']),
-                            ),
+                child: ListView.builder(
+                    itemBuilder: ( context, index){
+                      return ListTile(
+                        title: Text(jsonList[index]['first_name']),
+                        subtitle: Text(jsonList[index]['email']),
+                        leading: CircleAvatar(
+                          child: Image(
+                            image: NetworkImage(jsonList[index]['avatar']),
                           ),
-                        );
-                      },
-                    itemCount: jsonList==null?0:jsonList.length,
-                    shrinkWrap: true,
-                      ),
-                )
+                        ),
+                      );
+                    },
+                  itemCount: jsonList==null?0:jsonList.length,
+                  shrinkWrap: true,
+                    )
               ),
               //SizedBox(height: 20,),
               Padding(
